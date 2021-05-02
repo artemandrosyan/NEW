@@ -130,7 +130,11 @@ class AWS {
         parameterContainerDefTemplate,
         taskDefCloudFormation.slice(indexContainerDef),
       ].join('');
-      taskDefCloudFormation = taskDefCloudFormation.replace(insertionStringKeyContainerDef, '');
+      taskDefCloudFormation = taskDefCloudFormation.replace(
+        `
+      ${insertionStringKeyContainerDef}`,
+        '',
+      );
     }
     core.info('Cloud Formation template for this build step:');
     core.info(taskDefCloudFormation);
