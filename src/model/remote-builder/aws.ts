@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import * as core from '@actions/core';
 import * as zlib from 'zlib';
 import RemoteBuilderTaskDef from './remote-builder-task-def';
-import RemoteBuilderUniqueID from './remote-builder-uid';
+import RemoteBuilderUID from './remote-builder-uid';
 
 class AWS {
   static async run(
@@ -52,7 +52,7 @@ class AWS {
     environment: RemoteBuilderEnvironmentVariable[],
     secrets: RemoteBuilderSecret[],
   ): Promise<RemoteBuilderTaskDef> {
-    const logid = RemoteBuilderUniqueID.GetUniqueId(9);
+    const logid = RemoteBuilderUID.GetUniqueId(9);
     commands[1] += `
       echo "${logid}"
     `;

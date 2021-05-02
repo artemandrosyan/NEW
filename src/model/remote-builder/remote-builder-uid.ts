@@ -1,8 +1,8 @@
 import { customAlphabet } from 'nanoid';
-class RemoteBuilderUniqueID {
+class RemoteBuilderUID {
   static alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   static GetUniqueId(length): string {
-    return customAlphabet(RemoteBuilderUniqueID.alphabet, length)();
+    return customAlphabet(RemoteBuilderUID.alphabet, length)();
   }
 }
-export default RemoteBuilderUniqueID;
+export default RemoteBuilderUID;
