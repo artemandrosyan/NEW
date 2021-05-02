@@ -1,12 +1,11 @@
 import * as SDK from 'aws-sdk';
-import { customAlphabet } from 'nanoid';
 import RemoteBuilderSecret from './remote-builder-secret';
 import RemoteBuilderEnvironmentVariable from './remote-builder-environment-variable';
 import * as fs from 'fs';
 import * as core from '@actions/core';
 import * as zlib from 'zlib';
 import RemoteBuilderTaskDef from './remote-builder-task-def';
-import RemoteBuilderAlphabet from './remote-builder-alphabet';
+import RemoteBuilderUniqueID from './remote-builder-uid';
 
 class AWS {
   static async run(
@@ -53,7 +52,7 @@ class AWS {
     environment: RemoteBuilderEnvironmentVariable[],
     secrets: RemoteBuilderSecret[],
   ): Promise<RemoteBuilderTaskDef> {
-    const logid = customAlphabet(RemoteBuilderAlphabet.alphabet, 9)();
+    const logid = RemoteBuilderUniqueID.GetUniqueId(9);
     commands[1] += `
       echo "${logid}"
     `;
@@ -130,11 +129,6 @@ class AWS {
         parameterContainerDefTemplate,
         taskDefCloudFormation.slice(indexContainerDef),
       ].join('');
-      taskDefCloudFormation = taskDefCloudFormation.replace(
-        `
-      ${insertionStringKeyContainerDef}`,
-        '',
-      );
     }
     core.info('Cloud Formation template for this build step:');
     core.info(taskDefCloudFormation);

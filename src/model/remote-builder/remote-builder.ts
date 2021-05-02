@@ -1,7 +1,6 @@
-import { customAlphabet } from 'nanoid';
 import AWS from './aws';
 import * as core from '@actions/core';
-import RemoteBuilderAlphabet from './remote-builder-alphabet';
+import RemoteBuilderUID from './remote-builder-uid';
 import { BuildParameters } from '..';
 const repositoryDirectoryName = 'repo';
 const efsDirectoryName = 'data';
@@ -10,10 +9,9 @@ const cacheDirectoryName = 'cache';
 class RemoteBuilder {
   static async runBuildJob(buildParameters: BuildParameters, baseImage) {
     try {
-      const nanoid = customAlphabet(RemoteBuilderAlphabet.alphabet, 4);
       const buildUid = `${process.env.GITHUB_RUN_NUMBER}-${buildParameters.platform
         .replace('Standalone', '')
-        .replace('standalone', '')}-${nanoid()}`;
+        .replace('standalone', '')}-${RemoteBuilderUID.GetUniqueId(4)}`;
       const branchName = process.env.GITHUB_REF?.split('/').reverse()[0];
       const token: string = buildParameters.githubToken;
       const defaultSecretsArray = [
