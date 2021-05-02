@@ -62,7 +62,7 @@ class AWS {
     for (const secret of secrets) {
       const insertionStringParameters = 'p1 - input';
       const insertionStringSecrets = 'p2 - secret';
-      const insertionStringContainerSecrets = 'p3 - container def';
+      const insertionStringContainerSecrets = 'Secrets:';
       const indexp1 =
         taskDefCloudFormation.search(insertionStringParameters) + insertionStringParameters.length + '\n'.length;
       const parameterTemplate = `
