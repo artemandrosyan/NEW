@@ -116,7 +116,7 @@ class AWS {
         parameterTemplate,
         taskDefCloudFormation.slice(index),
       ].join('');
-      const insertionStringKeyContainerDef = '# template - env vars';
+      const insertionStringKeyContainerDef = 'Environment:';
       const indexContainerDef =
         taskDefCloudFormation.search(insertionStringKeyContainerDef) +
         insertionStringKeyContainerDef.length +
