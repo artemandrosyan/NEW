@@ -123,7 +123,7 @@ class AWS {
         '\n'.length;
       const parameterContainerDefTemplate = `
             - Name: '${environmentVariable.name}'
-              ValueFrom: !Ref ${environmentVariable.name.replace(/[^\dA-Za-z]/g, '')}
+              Value: !Ref ${environmentVariable.name.replace(/[^\dA-Za-z]/g, '')}
 `;
       taskDefCloudFormation = [
         taskDefCloudFormation.slice(0, indexContainerDef),
