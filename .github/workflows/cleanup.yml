@@ -1,7 +1,7 @@
 name: Cleanup (cron)
 on:
   schedule:
-    - cron: '30 10 * * SUN' # every sunday at 10:30
+    - cron: '31 16 * * TUE' # every sunday at 10:30
 
 jobs:
   deleteArtifacts:
