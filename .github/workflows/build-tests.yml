@@ -63,10 +63,17 @@ jobs:
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
 
       ###########################
-      #          Upload         #
+      #          Deploy        #
       ###########################
-      - uses: actions/upload-artifact@v2
+      - uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
-          name: Build (${{ matrix.unityVersion }})
-          path: build
-          retention-days: 14
+           appId: ${{secrets.FIREBASE_APP_ID}}
+           token: ${{secrets.FIREBASE_TOKEN}}
+           groups: testers
+           file: build/Android/Android.apk
+           debug: true
+      - uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+        with:
+          arg-spec: 'tests.yml:android-pixel-4'
+        env:
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
