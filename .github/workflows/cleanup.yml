@@ -1,7 +1,8 @@
 name: Cleanup (cron)
 on:
+  push: { branches: [main] }
   schedule:
-    - cron: '31 16 * * TUE' # every sunday at 10:30
+    - cron: '30 10 * * SUN' # every sunday at 10:30
 
 jobs:
   deleteArtifacts:
