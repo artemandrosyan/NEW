@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AnimalsAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 3b2311c8b42799f419d8484d893c4334, type: 3}
+    totalSpriteSurfaceArea: 554880
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: edeb5e102c166904cb3f138041c4d0a9, type: 3}
+  - {fileID: 21300000, guid: 0e13a8c0ec163704a907e534d3017039, type: 3}
+  - {fileID: 21300000, guid: c3b210d0c68aa8a45990eeffddf81640, type: 3}
+  - {fileID: 21300000, guid: 8215e651daec5a74d877882814504376, type: 3}
+  - {fileID: 21300000, guid: c3f56b12fcc1a6b478f02ff81e1da0b0, type: 3}
+  - {fileID: 21300000, guid: 501a6092758b84d4fb8f3fdcaf25e8a4, type: 3}
+  - {fileID: 21300000, guid: 7b86e2b228e04404aacbc5b932641466, type: 3}
+  - {fileID: 21300000, guid: 3b6f0df24aa13c846b10c2a3d9c8b77a, type: 3}
+  - {fileID: 21300000, guid: 15354e84e3b04b0409677ca9041413f6, type: 3}
+  - {fileID: 21300000, guid: 279188257db24fc4d9669edeb5fcd4af, type: 3}
+  - {fileID: 21300000, guid: 80fed6652257e644a971021aa5c3e3c5, type: 3}
+  - {fileID: 21300000, guid: 076c27851877c55458d59b900bebe055, type: 3}
+  - {fileID: 21300000, guid: 0e76882744e7dbc4e9fd88dce4231163, type: 3}
+  - {fileID: 21300000, guid: 20f7473746c1a3445a1da623b2f0e042, type: 3}
+  - {fileID: 21300000, guid: d8ff9229d79e29a4db5ebe1202e7e506, type: 3}
+  - {fileID: 21300000, guid: afeec069419c44f47a5dff3d240d12f8, type: 3}
+  - {fileID: 21300000, guid: 0e77aed9845022a44a288ca168c5ef2c, type: 3}
+  - {fileID: 21300000, guid: 3ee2520a1f804c8498edb71a94e58df0, type: 3}
+  - {fileID: 21300000, guid: a846585ab5567604ea21710bac74888a, type: 3}
+  - {fileID: 21300000, guid: e8375e9af9976264b914fb0602cdb03c, type: 3}
+  - {fileID: 21300000, guid: 030ba4ba763abeb48a960da95c3a3029, type: 3}
+  - {fileID: 21300000, guid: d3b05cda731d6a646a6ca93c08de30f1, type: 3}
+  - {fileID: 21300000, guid: 3d0fefeb978241341ae65c67ac16c2c8, type: 3}
+  - {fileID: 21300000, guid: 2416c51c013dfc34da98f11a40ee78cd, type: 3}
+  - {fileID: 21300000, guid: 6e4c18acbafd5484baf2f22a5ba2dcbd, type: 3}
+  - {fileID: 21300000, guid: 19261aaca3d819745ae34ca412308a4e, type: 3}
+  - {fileID: 21300000, guid: 609a25ccada851c4bab39b2f4da3677d, type: 3}
+  - {fileID: 21300000, guid: eb9fba3d630b3fe408c9574435b58c1e, type: 3}
+  - {fileID: 21300000, guid: d001002fe86695e4ab5055085bf04b00, type: 3}
+  - {fileID: 21300000, guid: 5d212e2f312f7a94dbe59694eb293c0e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - snake
+  - buffalo
+  - bear
+  - zebra
+  - moose
+  - owl
+  - duck
+  - giraffe
+  - penguin
+  - sloth
+  - rhino
+  - hippo
+  - narwhal
+  - crocodile
+  - walrus
+  - chick
+  - gorilla
+  - dog
+  - monkey
+  - rabbit
+  - elephant
+  - cow
+  - parrot
+  - goat
+  - whale
+  - panda
+  - horse
+  - pig
+  - frog
+  - chicken
+  m_RenderDataMap: {}
+  m_Tag: AnimalsAtlas
+  m_IsVariant: 0
