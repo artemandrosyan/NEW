@@ -14,7 +14,7 @@ namespace UnityBuilderAction
   {
     public static void BuildProject()
     {
-      // Gather values from args
+      // Gather values from arg
       var options = ArgumentsParser.GetValidatedOptions();
 
       // Gather values from project
