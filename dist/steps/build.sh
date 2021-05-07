@@ -50,8 +50,8 @@ if [ -z "$BUILD_METHOD" ]; then
   # Copy the build script of Unity Builder action
   cp -R "/UnityBuilderAction/Assets/Editor/" "$UNITY_PROJECT_PATH/Assets/Editor/"
   # Set the Build method to that of UnityBuilder Action
-  #BUILD_METHOD="UnityBuilderAction.Builder.BuildProject"
-  BUILD_METHOD="UnityBuilderAction.CIEditorScript.PerformAndroidBuild"
+  BUILD_METHOD="UnityBuilderAction.Builder.BuildProject"
+  #BUILD_METHOD="UnityBuilderAction.CIEditorScript.PerformAndroidBuild"
   # Verify recursive paths
   ls -Ralph "$UNITY_PROJECT_PATH/Assets/Editor/"
   #
