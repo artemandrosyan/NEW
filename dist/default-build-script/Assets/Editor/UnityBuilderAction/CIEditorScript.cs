@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.Build.Reporting;
+using UnityBuilderAction.Input;
+using UnityBuilderAction.Reporting;
+using UnityBuilderAction.Versioning;
 
 namespace UnityBuilderAction
 {
