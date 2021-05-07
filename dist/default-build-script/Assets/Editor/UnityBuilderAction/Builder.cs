@@ -19,9 +19,9 @@ namespace UnityBuilderAction
 
       // Gather values from project
       var scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(s => s.path).ToArray();
-      EditorBuildSettings.exportAsGoogleAndroidProject = true;
+      
       // Get all buildOptions from options
-      BuildOptions buildOptions = BuildOptions.None;
+      BuildOptions buildOptions = BuildOptions.AcceptExternalModificationsToPlayer;
       foreach (string buildOptionString in Enum.GetNames(typeof(BuildOptions))) {
         if (options.ContainsKey(buildOptionString)) {
           BuildOptions buildOptionEnum = (BuildOptions) Enum.Parse(typeof(BuildOptions), buildOptionString);
