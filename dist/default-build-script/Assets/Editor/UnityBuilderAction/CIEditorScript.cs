@@ -40,10 +40,17 @@ static class CIEditorScript
 	public static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
 	{
 		EditorUserBuildSettings.SwitchActiveBuildTarget (build_target);
-    var res = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
-		if (res.Length > 0) {
-			throw new Exception ("BuildPlayer failure: " + res);
-		}
+   
+		// Perform build
+      BuildReport buildReport =  BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
+
+      // Summary
+      BuildSummary summary = buildReport.summary;
+      StdOutReporter.ReportSummary(summary);
+
+      // Result
+      BuildResult result = summary.result;
+      StdOutReporter.ExitWithResult(result);
 	}
 }
 }
