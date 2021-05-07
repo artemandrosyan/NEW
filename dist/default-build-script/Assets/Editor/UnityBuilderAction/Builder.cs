@@ -71,7 +71,7 @@ namespace UnityBuilderAction
 
       // Perform build
       BuildReport buildReport = BuildPipeline.BuildPlayer(buildPlayerOptions);
-      throw new Exception ("BuildPlayer failure: ");
+      
 		  
 	
 		
