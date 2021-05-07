@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEditor.Build.Reporting;
 
 
 public class CIEditorScript
@@ -40,15 +41,5 @@ public class CIEditorScript
 		EditorUserBuildSettings.SwitchActiveBuildTarget (build_target);
     BuildReport report = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
     BuildSummary summary = report.summary;
-
-        if (summary.result == BuildResult.Succeeded)
-        {
-            Debug.Log("Build succeeded: " + summary.totalSize + " bytes");
-        }
-
-        if (summary.result == BuildResult.Failed)
-        {
-            Debug.Log("Build failed");
-        }
 	}
 }
