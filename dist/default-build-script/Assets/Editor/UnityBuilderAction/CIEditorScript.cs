@@ -5,8 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEditor.Build.Reporting;
 
-
-public class CIEditorScript
+namespace UnityBuilderAction
+{
+static class CIEditorScript
 {
 	static string[] SCENES = FindEnabledEditorScenes ();
 
@@ -14,18 +15,18 @@ public class CIEditorScript
 	static string TARGET_DIR = ".";
 
 	[MenuItem ("Custom/CI/Build iOS")]
-	static void PerformIOSBuild ()
+	public static void PerformIOSBuild ()
 	{
 		GenericBuild (SCENES, TARGET_DIR + "/ios/", BuildTarget.iOS, BuildOptions.None);
 	}
 
 	[MenuItem ("Custom/CI/Build Android")]
-	static void PerformAndroidBuild ()
+	public static void PerformAndroidBuild ()
 	{
 		GenericBuild (SCENES, TARGET_DIR + "/android/", BuildTarget.Android, BuildOptions.AcceptExternalModificationsToPlayer);
 	}
 
-	private static string[] FindEnabledEditorScenes ()
+	public static string[] FindEnabledEditorScenes ()
 	{
 		List<string> EditorScenes = new List<string> ();
 		foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes) {
@@ -36,10 +37,11 @@ public class CIEditorScript
 		return EditorScenes.ToArray ();
 	}
 
-	static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
+	public static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
 	{
 		EditorUserBuildSettings.SwitchActiveBuildTarget (build_target);
     BuildReport report = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
     BuildSummary summary = report.summary;
 	}
+}
 }
