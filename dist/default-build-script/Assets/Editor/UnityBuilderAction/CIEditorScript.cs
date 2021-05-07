@@ -40,8 +40,10 @@ static class CIEditorScript
 	public static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
 	{
 		EditorUserBuildSettings.SwitchActiveBuildTarget (build_target);
-    BuildReport report = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
-    BuildSummary summary = report.summary;
+    var res = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
+		if (res.Length > 0) {
+			throw new Exception ("BuildPlayer failure: " + res);
+		}
 	}
 }
 }
