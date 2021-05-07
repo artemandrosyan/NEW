@@ -43,15 +43,11 @@ static class CIEditorScript
 	public static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
 	{
 		EditorUserBuildSettings.SwitchActiveBuildTarget (build_target);
-    BuildReport buildReport;
-        try
-        {
+    
+
              buildReport = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
-        }
-        catch (Exception e)
-        {
-           
-        }
+       
+   
    
 		// Perform build
      
