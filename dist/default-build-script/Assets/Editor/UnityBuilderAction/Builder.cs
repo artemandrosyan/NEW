@@ -69,19 +69,19 @@ namespace UnityBuilderAction
       }
 
       // Perform build
-      //BuildReport buildReport = BuildPipeline.BuildPlayer(buildPlayerOptions);
-      string res =  BuildPipeline.BuildPlayer(buildPlayerOptions);
+      BuildReport buildReport = BuildPipeline.BuildPlayer(buildPlayerOptions);
+      throw new Exception ("BuildPlayer failure: ");
 		  
-			throw new Exception ("BuildPlayer failure: " + res);
+	
 		
 
       // Summary
-     // BuildSummary summary = buildReport.summary;
-      //StdOutReporter.ReportSummary(summary);
+      BuildSummary summary = buildReport.summary;
+      StdOutReporter.ReportSummary(summary);
 
       // Result
-     // BuildResult result = summary.result;
-      //StdOutReporter.ExitWithResult(result);
+      BuildResult result = summary.result;
+      StdOutReporter.ExitWithResult(result);
     }
   }
 }
