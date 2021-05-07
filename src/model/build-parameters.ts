@@ -51,7 +51,8 @@ class BuildParameters {
     }
 
     if (Platform.isAndroid(platform)) {
-      return androidAppBundle ? `${filename}.aab` : `${filename}.apk`;
+     # return androidAppBundle ? `${filename}.aab` : `${filename}.apk`;
+     return `${filename}`;
     }
 
     return filename;
