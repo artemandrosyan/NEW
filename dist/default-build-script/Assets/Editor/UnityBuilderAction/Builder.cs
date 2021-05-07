@@ -7,7 +7,6 @@ using UnityBuilderAction.Versioning;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-using UnityEditor.EditorUserBuildSettings;
 
 namespace UnityBuilderAction
 {
