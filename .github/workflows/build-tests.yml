@@ -62,9 +62,9 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with: {java-version: 1.8}
+      #- uses: actions/checkout@v2
+      #- uses: actions/setup-java@v1
+       # with: {java-version: 1.8}
 
       #- name: Checkout keystore repo
        # uses: actions/checkout@v2
@@ -73,11 +73,11 @@ jobs:
        #   token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
        #   path: app/keystore
 
-      - name: Run tests and build release artifacts
-        run: |
-          ./gradlew test
-          ./gradlew assembleRelease 
-          ./gradlew bundleRelease
+     # - name: Run tests and build release artifacts
+     #   run: |
+     #     ./gradlew test
+      #    ./gradlew assembleRelease 
+     #     ./gradlew bundleRelease
 
      # - name: Upload signed APK
      #   uses: actions/upload-artifact@v2
@@ -99,9 +99,19 @@ jobs:
            appId: ${{secrets.FIREBASE_APP_ID}}
            token: ${{secrets.FIREBASE_TOKEN}}
            groups: testers
-           #file: build/Android/Android.apk
-           file: app/build/outputs/apk/release/app-release.apk
+           file: build/Android/Android.apk
+           #file: app/build/outputs/apk/release/app-release.apk
            debug: true
+      - uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJson: ${{ secrets.SERVICE_ACCOUNT }}
+          packageName: com.DefaultCompany.ShopProject
+          releaseFile: build/Android/Android.apk
+          track: production
+          inAppUpdatePriority: 2
+          userFraction: 0.33
+          whatsNewDirectory: distribution/whatsnew
+          #mappingFile: build/outputs/mapping/release/mapping.txt
       #- uses: asadmansr/Firebase-Test-Lab-Action@v1.0
       #  with:
       #    arg-spec: 'tests.yml:android-pixel-4'
