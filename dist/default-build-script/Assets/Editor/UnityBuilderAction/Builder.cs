@@ -19,7 +19,7 @@ namespace UnityBuilderAction
 
       // Gather values from project
       var scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(s => s.path).ToArray();
-      EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
+      //EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
       // Get all buildOptions from options
       BuildOptions buildOptions = BuildOptions.None;
       //AcceptExternalModificationsToPlayer
