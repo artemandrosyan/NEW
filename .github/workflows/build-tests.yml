@@ -106,12 +106,12 @@ jobs:
         with:
           serviceAccountJson: ${{ secrets.SERVICE_ACCOUNT }}
           packageName: com.DefaultCompany.ShopProject
-          releaseFiles: /apk.apk
+          releaseFiles: /aab.apk
           track: production
           inAppUpdatePriority: 2
           userFraction: 0.33
           whatsNewDirectory: distribution/whatsnew
-          mappingFile: apk.txt
+          mappingFile: aab.txt
       #- uses: asadmansr/Firebase-Test-Lab-Action@v1.0
       #  with:
       #    arg-spec: 'tests.yml:android-pixel-4'
