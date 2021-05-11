@@ -92,7 +92,7 @@ jobs:
      #     path: app/build/outputs/bundle/release/app-release.aab
 
       ###########################
-      #          Deploy        #
+      #          Deploy        
       ###########################
       - uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
