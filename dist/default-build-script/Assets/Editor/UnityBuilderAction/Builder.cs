@@ -25,13 +25,14 @@ public class Builder
     [MenuItem ("Custom/CI/Build iOS")]
     static void PerformIOSBuild ()
     {
+        EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
         GenericBuild (SCENES, TARGET_DIR + "/ios/", BuildTarget.iOS, BuildOptions.None);
     }
 
     [MenuItem ("Custom/CI/Build Android")]
     static void PerformAndroidBuild ()
     {
-        GenericBuild (SCENES, TARGET_DIR + "/android/", BuildTarget.Android, BuildOptions.AcceptExternalModificationsToPlayer);
+        GenericBuild (SCENES, TARGET_DIR + "/android/", BuildTarget.Android, BuildOptions.None);
     }
 
     private static string[] FindEnabledEditorScenes ()
@@ -47,12 +48,9 @@ public class Builder
 
     static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
     {
-        EditorUserBuildSettings.SwitchActiveBuildTarget (build_target);
-        //string res = BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
-       BuildPipeline.BuildPlayer (scenes, target_dir, build_target, build_options);
-        //if (res.Length > 0) {
-         //   throw new Exception ("BuildPlayer failure: " + res);
-       // }
+        EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
+        var report = BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options);
+        Console.WriteLine(report.ToString());
     }
 }
 }
