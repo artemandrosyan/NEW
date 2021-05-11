@@ -104,6 +104,20 @@ jobs:
           # file: build/Android/Android.apk
           # #file: app/build/outputs/apk/release/app-release.apk
           # debug: true
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: internal
+          path: GITHUB_WORKSPACE/apk.apk
+      - name: Upload to PlayMarket
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
+          packageName: com.Long.Strike
+          releaseFile: GITHUB_WORKSPACE/apk.apk
+          track: internal
+          userFraction: 0.33
+          #whatsNewDirectory: distribution/whatsnew
       - uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: ${{ secrets.SERVICE_ACCOUNT }}
