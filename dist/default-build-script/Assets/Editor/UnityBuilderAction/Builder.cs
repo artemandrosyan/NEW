@@ -6,11 +6,11 @@ using System.Collections.Generic;
 //using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-
-public class CIEditorScript {
+namespace UnityBuilderAction{
+public class Builder {
   static string[] SCENES = FindEnabledEditorScenes();
 
-  static string TARGET_DIR = "C:/Users/Artem/Desktop";
+  static string TARGET_DIR = "target";
 
 
   static void PerformIOSBuild() {
@@ -48,4 +48,4 @@ public class CIEditorScript {
      
   }
 }
-
+}
