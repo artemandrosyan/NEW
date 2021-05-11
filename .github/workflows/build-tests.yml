@@ -96,14 +96,14 @@ jobs:
       ###########################
       #          Deploy        
       ###########################
-      - uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-           appId: ${{secrets.FIREBASE_APP_ID}}
-           token: ${{secrets.FIREBASE_TOKEN}}
-           groups: testers
-           file: build/Android/Android.apk
-           #file: app/build/outputs/apk/release/app-release.apk
-           debug: true
+      #- uses: wzieba/Firebase-Distribution-Github-Action@v1
+      #  with:
+       #    appId: ${{secrets.FIREBASE_APP_ID}}
+        #   token: ${{secrets.FIREBASE_TOKEN}}
+         #  groups: testers
+          # file: build/Android/Android.apk
+          # #file: app/build/outputs/apk/release/app-release.apk
+          # debug: true
       - uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: ${{ secrets.SERVICE_ACCOUNT }}
