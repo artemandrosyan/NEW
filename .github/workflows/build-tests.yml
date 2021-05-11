@@ -104,11 +104,11 @@ jobs:
           # file: build/Android/Android.apk
           # #file: app/build/outputs/apk/release/app-release.apk
           # debug: true
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: internal
-          path: apk.apk
+     # - name: Upload APK
+        #uses: actions/upload-artifact@v2
+       # with:
+       #   name: internal
+        #  path: apk.apk
       - name: Upload to PlayMarket
         uses: r0adkll/upload-google-play@v1
         with:
