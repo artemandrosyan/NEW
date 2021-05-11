@@ -74,8 +74,9 @@ jobs:
 
       - name: Run tests and build release artifacts
         run: |
+          cd ./
           ./gradle wrapper --gradle-version 6.9
-          
+          ./gradle init
           ./gradlew test
           ./gradlew assembleRelease 
           ./gradlew bundleRelease
