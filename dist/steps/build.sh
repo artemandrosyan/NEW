@@ -110,22 +110,23 @@ echo "###########################"
 echo ""
 
 unity-editor \
-  -nographics \
-  -logfile /dev/stdout \
-  -quit \
-  -customBuildName "$BUILD_NAME" \
-  -projectPath "$UNITY_PROJECT_PATH" \
-  -buildTarget "$BUILD_TARGET" \
-  -customBuildTarget "$BUILD_TARGET" \
-  -customBuildPath "$CUSTOM_BUILD_PATH" \
-  -executeMethod "$BUILD_METHOD" \
-  -buildVersion "$VERSION" \
-  -androidVersionCode "$ANDROID_VERSION_CODE" \
-  -androidKeystoreName "$ANDROID_KEYSTORE_NAME" \
-  -androidKeystorePass "$ANDROID_KEYSTORE_PASS" \
-  -androidKeyaliasName "$ANDROID_KEYALIAS_NAME" \
-  -androidKeyaliasPass "$ANDROID_KEYALIAS_PASS" \
-  $CUSTOM_PARAMETERS
+-batchmode -nographics -silent-crashes -projectpath "$UNITY_PROJECT_PATH" -logfile -logfile /dev/stdout -executeMethod UnityBuilderAction.Builder.PerformAndroidBuild -quit
+  #-nographics \
+  #-logfile /dev/stdout \
+  #-quit \
+  #-customBuildName "$BUILD_NAME" \
+  #-projectPath "$UNITY_PROJECT_PATH" \
+  #-buildTarget "$BUILD_TARGET" \
+  #-customBuildTarget "$BUILD_TARGET" \
+  #-customBuildPath "$CUSTOM_BUILD_PATH" \
+  #-executeMethod "$BUILD_METHOD" \
+  #-buildVersion "$VERSION" \
+  #-androidVersionCode "$ANDROID_VERSION_CODE" \
+  #-androidKeystoreName "$ANDROID_KEYSTORE_NAME" \
+  #-androidKeystorePass "$ANDROID_KEYSTORE_PASS" \
+  #-androidKeyaliasName "$ANDROID_KEYALIAS_NAME" \
+  #-androidKeyaliasPass "$ANDROID_KEYALIAS_PASS" \
+  #$CUSTOM_PARAMETERS
 
 # Catch exit code
 BUILD_EXIT_CODE=$?
