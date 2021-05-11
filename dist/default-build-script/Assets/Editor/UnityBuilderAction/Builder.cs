@@ -20,7 +20,7 @@ public class Builder {
 
   static void PerformAndroidBuild() {
     UnityEditor.EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
-    GenericBuild(SCENES, ./, UnityEditor.BuildTarget.Android, UnityEditor.BuildOptions.None);
+    GenericBuild(SCENES, "./", UnityEditor.BuildTarget.Android, UnityEditor.BuildOptions.None);
     TARGET_DIR + "/android/"
   }
 
