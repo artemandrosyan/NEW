@@ -10,7 +10,7 @@ namespace UnityBuilderAction{
 public class Builder {
   static string[] SCENES = FindEnabledEditorScenes();
 
-  static string TARGET_DIR = "target";
+  static string TARGET_DIR = "./";
 
 
   static void PerformIOSBuild() {
@@ -20,8 +20,8 @@ public class Builder {
 
   static void PerformAndroidBuild() {
     UnityEditor.EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
-    GenericBuild(SCENES, "./", UnityEditor.BuildTarget.Android, UnityEditor.BuildOptions.None);
-    //TARGET_DIR + "/android/"
+    GenericBuild(SCENES, TARGET_DIR + "/android/", UnityEditor.BuildTarget.Android, UnityEditor.BuildOptions.None);
+   
   }
 
   private static string[] FindEnabledEditorScenes() {
