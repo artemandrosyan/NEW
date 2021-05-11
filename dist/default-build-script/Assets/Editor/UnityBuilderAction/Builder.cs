@@ -1,56 +1,51 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using UnityBuilderAction.Input;
-using UnityBuilderAction.Reporting;
-using UnityBuilderAction.Versioning;
-using UnityEditor;
-using UnityEditor.Build.Reporting;
-using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor;
+//using UnityEditor;
+//using UnityEditor.Build.Reporting;
+using UnityEngine;
 
 
-namespace UnityBuilderAction
-{
+public class CIEditorScript {
+  static string[] SCENES = FindEnabledEditorScenes();
+
+  static string TARGET_DIR = "C:/Users/Artem/Desktop";
 
 
-public class Builder
-{
-    static string[] SCENES = FindEnabledEditorScenes ();
+  static void PerformIOSBuild() {
+    GenericBuild(SCENES, TARGET_DIR + "/ios/", UnityEditor.BuildTarget.iOS, UnityEditor.BuildOptions.None);
+  }
 
-    static string APP_NAME = "LuauUnity";
-    static string TARGET_DIR = "target";
 
-    [MenuItem ("Custom/CI/Build iOS")]
-    static void PerformIOSBuild ()
-    {
-        EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
-        GenericBuild (SCENES, TARGET_DIR + "/ios/", BuildTarget.iOS, BuildOptions.None);
+  static void PerformAndroidBuild() {
+    UnityEditor.EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
+    GenericBuild(SCENES, TARGET_DIR + "/android/", UnityEditor.BuildTarget.Android, UnityEditor.BuildOptions.None);
+  }
+
+  private static string[] FindEnabledEditorScenes() {
+    List<string> EditorScenes = new List<string>();
+    foreach (UnityEditor.EditorBuildSettingsScene scene in UnityEditor.EditorBuildSettings.scenes) {
+      if (!scene.enabled)
+        continue;
+      EditorScenes.Add(scene.path);
     }
+    return EditorScenes.ToArray();
+  }
 
-    [MenuItem ("Custom/CI/Build Android")]
-    static void PerformAndroidBuild ()
-    {
-        GenericBuild (SCENES, TARGET_DIR + "/android/", BuildTarget.Android, BuildOptions.None);
-    }
+  static void GenericBuild(string[] scenes, string target_dir, UnityEditor.BuildTarget build_target, UnityEditor.BuildOptions build_options) {
+    UnityEditor.EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
 
-    private static string[] FindEnabledEditorScenes ()
-    {
-        List<string> EditorScenes = new List<string> ();
-        foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes) {
-            if (!scene.enabled)
-                continue;
-            EditorScenes.Add (scene.path);
-        }
-        return EditorScenes.ToArray ();
-    }
+    // Perform build
+    UnityEditor.Build.Reporting.BuildReport buildReport = UnityEditor.BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options);
+    UnityEditor.Build.Reporting.BuildSummary summary = buildReport.summary;
+     
+    Console.WriteLine(summary.outputPath);
+    Debug.Log(summary.outputPath);
 
-    static void GenericBuild (string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
-    {
-        EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
-        var report = BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options);
-        Console.WriteLine(report.ToString());
-    }
+    UnityEditor.Build.Reporting.BuildResult result = summary.result;
+    Console.WriteLine(result.ToString());
+     
+  }
 }
-}
+
