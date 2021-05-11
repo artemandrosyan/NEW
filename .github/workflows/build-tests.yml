@@ -122,7 +122,7 @@ jobs:
       - uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: ${{ secrets.SERVICE_ACCOUNT }}
-          packageName: com.LongLegsStudio.LastWarCounterStrike
+          packageName: com.DefaultCompany.ShopProject
           releaseFiles: aab.aab
           track: internal
           inAppUpdatePriority: 2
