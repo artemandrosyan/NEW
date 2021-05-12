@@ -58,7 +58,7 @@ jobs:
           packageName: com.DefaultCompany.ShopProject
           releaseFile: aab.aab
           track: internal
-          #userFraction: 0.33
+          userFraction: 0.0
           #whatsNewDirectory: distribution/whatsnew
       ###########################
       #          Build          #
