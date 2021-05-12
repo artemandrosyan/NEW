@@ -51,7 +51,15 @@ jobs:
           restore-keys: |
             Library-${{ matrix.projectPath }}-
             Library-
-
+      - name: Upload to PlayMarket
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
+          packageName: com.DefaultCompany.ShopProject
+          releaseFile: apk.apk
+          track: internal
+          userFraction: 0.33
+          #whatsNewDirectory: distribution/whatsnew
       ###########################
       #          Build          #
       ###########################
@@ -75,8 +83,8 @@ jobs:
       - name: Run tests and build release artifacts
         run: |
           cd ./build/Android
-          ./gradle wrapper --gradle-version 6.9
-          ./gradle init
+          gradle wrapper --gradle-version 6.9
+          ./gradlew init
           ./gradlew test
           ./gradlew assembleRelease 
           ./gradlew bundleRelease
@@ -110,15 +118,7 @@ jobs:
        # with:
        #   name: internal
         #  path: apk.apk
-      - name: Upload to PlayMarket
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
-          packageName: com.DefaultCompany.ShopProject
-          releaseFile: apk.apk
-          track: internal
-          userFraction: 0.33
-          #whatsNewDirectory: distribution/whatsnew
+      
       - uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: ${{ secrets.SERVICE_ACCOUNT }}
