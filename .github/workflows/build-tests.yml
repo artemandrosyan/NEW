@@ -56,7 +56,7 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
           packageName: com.DefaultCompany.ShopProject
-          releaseFile: apk.apk
+          releaseFile: aab.aab
           track: internal
           userFraction: 0.33
           #whatsNewDirectory: distribution/whatsnew
