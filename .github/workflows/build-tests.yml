@@ -71,7 +71,7 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       - name: cd
-        run: cd ./test-project/android//launcher
+        run: cd ./test-project/android/launcher
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       - name: Install NDK
