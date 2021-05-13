@@ -70,8 +70,9 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       - name: cd
-        run: cd android
-            ls ./build/Android
+        run: |
+       
+            ls -a ./test-project/Android
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
@@ -83,7 +84,7 @@ jobs:
         run: echo VERSION_CODE=${{ github.run_number }} > ./version.properties
       - name: Build with Gradle
         run: |
-          cd ./build/Android
+          cd ./test-project/Android
           gradle wrapper --gradle-version 6.9
           chmod +x ./gradlew
           ./gradlew init
