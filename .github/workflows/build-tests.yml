@@ -77,7 +77,7 @@ jobs:
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       - name: Install NDK
-        run:  echo "y" | mkdir "opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK" | cd "opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}| ls -aR "./test-project/android" | echo "========================1" | ls -aR "opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"| echo "========================2"
+        run:  echo "y" | mkdir "opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK" | cd "opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}| sh ./info.sh
       - name: Output version code
         run: echo VERSION_CODE=${{ github.run_number }} > ./version.properties
       - name: Build with Gradle
