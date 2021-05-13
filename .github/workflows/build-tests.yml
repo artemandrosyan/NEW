@@ -71,25 +71,25 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       - name: cd
-        run: cd ./test-project/android/launcher
+        run: cd ./test-project/android
+             cat ./test-project/android/build.gradle
+             cat ./test-project/android/local.properties
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       - name: Install NDK
-        run: cd ./test-project/android//launcher | echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
+        run: cd ./test-project/android/ | echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
       - name: Output version code
         run: echo VERSION_CODE=${{ github.run_number }} > ./version.properties
       - name: Build with Gradle
         run: |
-          cd ./test-project/android/launcher
-          sudo gradle wrapper --gradle-version 5.6.4 --stacktrace 
+          cd ./test-project/android
+          sudo gradle wrapper --gradle-version 3.6.0 --stacktrace 
           echo "=================gradle wrappe======================="
           sudo chmod +x ./gradlew
           echo "====================chmod +x ./gradlew===================="
           sudo ./gradlew init
           echo "====================chmod +x ./gradlew===================="
-          sudo ./gradlew --stop
-          echo "====================chmod +x ./gradlew===================="
-          sudo rm -rf ~/.gradle/caches/
+          sudo ./gradlew cleen
           echo "====================./gradlew init===================="
           sudo ./gradlew test
           echo "======================./gradlew test=================="
