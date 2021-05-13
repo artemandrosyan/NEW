@@ -79,8 +79,10 @@ jobs:
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
      
+      - name: Output version code
+        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
 
-          
+	
           
         
       # Some times is have problems with permissions for ./gradle file. Then uncommit it code
