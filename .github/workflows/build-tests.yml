@@ -81,18 +81,12 @@ jobs:
      
       - name: Install NDK
         run: cd ./test-project/android//launcher | echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT} 
-
-	
-          
-        
-      # Some times is have problems with permissions for ./gradle file. Then uncommit it code
-
+	# Some times is have problems with permissions for ./gradle file. Then uncommit it code
       - name: Output version code
         run: echo VERSION_CODE=${{ github.run_number }} > ./version.properties
       - name: Build with Gradle
         run: |
           cd ./test-project/android/launcher
-          
           sudo gradle wrapper --gradle-version 5.6.4 --stacktrace 
           echo "=================gradle wrappe======================="
           sudo chmod +x ./gradlew
@@ -105,7 +99,6 @@ jobs:
           echo "====================./gradlew init===================="
           sudo ./gradlew test
           echo "======================./gradlew test=================="
-          
           sudo ./gradlew bundleRelease
           echo "=======================./gradlew bundleRelease================="
           sudo ./gradlew assembleRelease 
