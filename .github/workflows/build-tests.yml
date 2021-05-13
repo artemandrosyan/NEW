@@ -59,7 +59,7 @@ jobs:
           releaseFile: aab.aab
           track: internal
           userFraction: 0.1
-          #whatsNewDirectory: distribution/whatsnew
+          #whatsNewDirectory: distribution/whatsnew 1
       ###########################
       #          Build          #
       ###########################
