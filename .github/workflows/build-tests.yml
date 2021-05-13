@@ -90,6 +90,8 @@ jobs:
           sudo chmod +x ./gradlew
           echo "====================chmod +x ./gradlew===================="
           sudo ./gradlew init
+          sudo ./gradlew --stop
+          sudo rm -rf ~/.gradle/caches/
           echo "====================./gradlew init===================="
           sudo ./gradlew test
           echo "======================./gradlew test=================="
