@@ -71,13 +71,15 @@ jobs:
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       - name: cd
         run: |
-       
+            cd ./test-project/android
             ls -a ./test-project/android
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
       - name: Install NDK
-        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;20.0.5594570" --sdk_root=${ANDROID_SDK_ROOT}
+        run: |
+          cd ./test-project/android
+          echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;20.0.5594570" --sdk_root=${ANDROID_SDK_ROOT}
       # Some times is have problems with permissions for ./gradle file. Then uncommit it code
 
       - name: Output version code
