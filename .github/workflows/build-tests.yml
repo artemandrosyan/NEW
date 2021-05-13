@@ -72,7 +72,7 @@ jobs:
       - name: cd
         run: |
        
-            ls -a ./test-project/Android
+            ls -a ./test-project/android
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
@@ -84,7 +84,7 @@ jobs:
         run: echo VERSION_CODE=${{ github.run_number }} > ./version.properties
       - name: Build with Gradle
         run: |
-          cd ./test-project/Android
+          cd ./test-project/android
           gradle wrapper --gradle-version 6.9
           chmod +x ./gradlew
           ./gradlew init
