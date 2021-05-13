@@ -85,7 +85,7 @@ jobs:
 
           
           
-          ls -a ./test-project/android
+        
       # Some times is have problems with permissions for ./gradle file. Then uncommit it code
 
       - name: Output version code
