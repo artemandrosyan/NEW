@@ -34,6 +34,7 @@ jobs:
           #          - tvOS # Build to Apple's tvOS platform.
           #          - Switch # Build a Nintendo Switch player
     steps:
+    
       ###########################
       #         Checkout        #
       ###########################
@@ -72,17 +73,12 @@ jobs:
       - name: cd
         run: |
         
-            cd ./test-project/android
+            cd ./test-project/android//launcher
 
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
-      - name: Install NDK
-        run: |
-         mkdir -p /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK
-          cd /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK
-        
-          echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
+     
 
           
           
@@ -93,17 +89,20 @@ jobs:
         run: echo VERSION_CODE=${{ github.run_number }} > ./version.properties
       - name: Build with Gradle
         run: |
-          cd ./test-project/android
+          cd ./test-project/android/launcher
           ls -R  "/opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
           sudo gradle wrapper --gradle-version 5.6.4 --stacktrace 
           echo "=================gradle wrappe======================="
           sudo chmod +x ./gradlew
           echo "====================chmod +x ./gradlew===================="
           sudo ./gradlew init
-          echo "====================init===================="
-          sudo ./gradlew clean
-                    echo "======================.clean=================="
-         
+          echo "====================chmod +x ./gradlew===================="
+          sudo ./gradlew --stop
+          echo "====================chmod +x ./gradlew===================="
+          sudo rm -rf ~/.gradle/caches/
+          echo "====================./gradlew init===================="
+          sudo ./gradlew test
+          echo "======================./gradlew test=================="
           
           sudo ./gradlew bundleRelease
           echo "=======================./gradlew bundleRelease================="
