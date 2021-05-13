@@ -71,7 +71,8 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       - name: cd
-        run: cd ./test-project/android
+        run: |
+             cd ./test-project/android
              cat ./test-project/android/build.gradle
              cat ./test-project/android/local.properties
       - uses: actions/setup-java@v1
