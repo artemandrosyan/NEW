@@ -100,13 +100,10 @@ jobs:
           sudo chmod +x ./gradlew
           echo "====================chmod +x ./gradlew===================="
           sudo ./gradlew init
-          echo "====================chmod +x ./gradlew===================="
-          sudo ./gradlew --stop
-          echo "====================chmod +x ./gradlew===================="
-          sudo rm -rf ~/.gradle/caches/
-          echo "====================./gradlew init===================="
-          sudo ./gradlew test
-          echo "======================./gradlew test=================="
+          echo "====================init===================="
+          sudo ./gradlew clean
+                    echo "======================.clean=================="
+         
           
           sudo ./gradlew bundleRelease
           echo "=======================./gradlew bundleRelease================="
