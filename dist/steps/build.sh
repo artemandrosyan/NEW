@@ -163,3 +163,5 @@ echo ""
 
 ls -alh "$BUILD_PATH_FULL"
 ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'
+cat $GITHUB_WORKSPACE/android/build.gradle
+cat $GITHUB_WORKSPACE/android/local.properties
