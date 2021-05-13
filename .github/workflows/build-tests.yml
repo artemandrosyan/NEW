@@ -80,10 +80,12 @@ jobs:
       - name: Install NDK
         run: |
           cd ./test-project/android
-          ls -a ./test-project/android
-      #    echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;20.0.5594570" --sdk_root=${ANDROID_SDK_ROOT}
+        
+          echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
+
           
-      #    ndk.dir = "./test-project/android/"
+          ndk.dir = "./test-project/android/"
+          #  ls -a ./test-project/android
       # Some times is have problems with permissions for ./gradle file. Then uncommit it code
 
       - name: Output version code
