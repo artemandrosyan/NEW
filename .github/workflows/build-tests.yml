@@ -85,12 +85,18 @@ jobs:
       - name: Build with Gradle
         run: |
           cd ./test-project/android
-          gradle wrapper --gradle-version 6.9 --stacktrace --debug
-          chmod +x ./gradlew
-          ./gradlew init
-          ./gradlew test
-          ./gradlew assembleRelease 
-          ./gradlew bundleRelease
+          sudo gradle wrapper --gradle-version 6.9 --stacktrace --debug
+          echo "=================gradle wrappe======================="
+          sudo chmod +x ./gradlew
+          echo "====================chmod +x ./gradlew===================="
+          sudo ./gradlew init
+          echo "====================./gradlew init===================="
+          sudo ./gradlew test
+          echo "======================./gradlew test=================="
+          sudo ./gradlew assembleRelease 
+          echo "======================./gradlew assembleRelease=================="
+          sudo ./gradlew bundleRelease
+          echo "=======================./gradlew bundleRelease================="
 
         #- name: Checkout keystore repo
        # uses: actions/checkout@v2
