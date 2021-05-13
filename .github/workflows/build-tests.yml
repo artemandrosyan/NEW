@@ -94,20 +94,24 @@ jobs:
       - name: Build with Gradle
         run: |
           cd ./test-project/android
+          ls -R  "/opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
           sudo gradle wrapper --gradle-version 5.6.4 --stacktrace 
           echo "=================gradle wrappe======================="
           sudo chmod +x ./gradlew
           echo "====================chmod +x ./gradlew===================="
           sudo ./gradlew init
+          echo "====================chmod +x ./gradlew===================="
           sudo ./gradlew --stop
+          echo "====================chmod +x ./gradlew===================="
           sudo rm -rf ~/.gradle/caches/
           echo "====================./gradlew init===================="
           sudo ./gradlew test
           echo "======================./gradlew test=================="
-          sudo ./gradlew assembleRelease 
-          echo "======================./gradlew assembleRelease=================="
+          
           sudo ./gradlew bundleRelease
           echo "=======================./gradlew bundleRelease================="
+          sudo ./gradlew assembleRelease 
+          echo "======================./gradlew assembleRelease=================="
 
         #- name: Checkout keystore repo
        # uses: actions/checkout@v2
