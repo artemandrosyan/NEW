@@ -79,8 +79,8 @@ jobs:
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
      
-      - name: Output version code
-        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
+      - name: Install NDK
+        run: cd ./test-project/android//launcher | echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT} 
 
 	
           
@@ -92,7 +92,7 @@ jobs:
       - name: Build with Gradle
         run: |
           cd ./test-project/android/launcher
-          ls -R  "/opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
+          
           sudo gradle wrapper --gradle-version 5.6.4 --stacktrace 
           echo "=================gradle wrappe======================="
           sudo chmod +x ./gradlew
