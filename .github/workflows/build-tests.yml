@@ -70,7 +70,7 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
       - name: cd
-        run: cd ./build/Android
+        run: cd android
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
       # Without NDK not compile and not normal error message. NDK is required
