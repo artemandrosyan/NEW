@@ -70,8 +70,11 @@ jobs:
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
-      
-             
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: export
+          path: ./test-project/android             
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
      
